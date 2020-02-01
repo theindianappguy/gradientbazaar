@@ -1,8 +1,6 @@
 import 'dart:html';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:gradientbazaar/data/gradients_data.dart';
 import 'package:gradientbazaar/model/gradient.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -16,9 +14,9 @@ class _HomeState extends State<Home> {
   List<GradientModel> gradients = new List<GradientModel>();
 
   String githubUrl = "https://github.com/theindianappguy";
-  String twitterUrl = "";
-  String linkedInUrl = "";
-  String facebookUrl = "";
+  String twitterUrl = "https://twitter.com/intent/tweet?url=https%3A%2F%2Fgradientbazzar.firebaseapp.com%2F&text=Hey%20guys%20check%20out%20this%20awesome%20gradients%20for%20your%20next%20project%20on%20";
+  String linkedInUrl = "https://www.linkedin.com/shareArticle?mini=true&url=https://gradientbazzar.firebaseapp.com/&summary=Hey%20guys%20check%20out%20this%20awesome%20%23gradients%20for%20your%20next%20project%20on%20";
+  String facebookUrl = "https://www.facebook.com/sharer/sharer.php?u=https://gradientbazzar.firebaseapp.com/";
 
   var randomNum = 0;
 
@@ -37,6 +35,8 @@ class _HomeState extends State<Home> {
     setState(() {
       gradients = getGradients();
     });
+
+    gradients.shuffle();
 
     var randomizer = new Random();
     randomNum = randomizer.nextInt(gradients.length);
@@ -143,30 +143,45 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                             SizedBox(width: 10,),
-                            Text(
-                              "Twitter",
-                              style: TextStyle(
-                                fontSize: 13,
-                                color: Colors.white60,
-                                  decoration: TextDecoration.underline
+                            GestureDetector(
+                              onTap: (){
+                                _launchURL(twitterUrl);
+                              },
+                              child: Text(
+                                "Twitter",
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white60,
+                                    decoration: TextDecoration.underline
+                                ),
                               ),
                             ),
                             SizedBox(width: 10,),
-                            Text(
-                              "LinkedIn",
-                              style: TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.white60,
-                                  decoration: TextDecoration.underline
+                            GestureDetector(
+                              onTap: (){
+                                _launchURL(linkedInUrl);
+                              },
+                              child: Text(
+                                "LinkedIn",
+                                style: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.white60,
+                                    decoration: TextDecoration.underline
+                                ),
                               ),
                             ),
                             SizedBox(width: 10,),
-                            Text(
-                              "Facebook",
-                              style: TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.white60,
-                                  decoration: TextDecoration.underline
+                            GestureDetector(
+                              onTap: (){
+                                _launchURL(facebookUrl);
+                              },
+                              child: Text(
+                                "Facebook",
+                                style: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.white60,
+                                    decoration: TextDecoration.underline
+                                ),
                               ),
                             ),
                           ],
@@ -237,7 +252,7 @@ class GradientCard extends StatelessWidget {
                   alignment: Alignment.bottomLeft,
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [Colors.white, Colors.white24],
+                          colors: [Colors.white30, Colors.white],
                           begin: FractionalOffset.centerRight,
                           end: FractionalOffset.centerLeft)),
                   child: Padding(
@@ -266,7 +281,8 @@ class GradientCard extends StatelessWidget {
                             _copyToClipboardHack(bottomColorCode);
                             final snackBar = SnackBar(
                                 content: Text(
-                                    '$bottomColorCode Copied to Clipboard'));
+                                    '$bottomColorCode Copied to Clipboard'),
+                              duration: const Duration(seconds: 1),);
                             // Find the Scaffold in the widget tree and use it to show a SnackBar.
                             Scaffold.of(context).showSnackBar(snackBar);
                           },
