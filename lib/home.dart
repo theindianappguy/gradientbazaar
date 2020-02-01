@@ -1,4 +1,5 @@
 import 'dart:html';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,6 +20,8 @@ class _HomeState extends State<Home> {
   String linkedInUrl = "";
   String facebookUrl = "";
 
+  var randomNum = 0;
+
   _launchURL(String url) async {
     print(url);
     if (await canLaunch(url)) {
@@ -34,6 +37,9 @@ class _HomeState extends State<Home> {
     setState(() {
       gradients = getGradients();
     });
+
+    var randomizer = new Random();
+    randomNum = randomizer.nextInt(gradients.length);
   }
 
   @override
@@ -57,8 +63,8 @@ class _HomeState extends State<Home> {
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
                             colors: [
-                          const Color(0xffA2834D),
-                          const Color(0xffBC9A5F)
+                          gradients[randomNum].getTopColor(),
+                          gradients[randomNum].getBottomColor()
                         ],
                             begin: FractionalOffset.topRight,
                             end: FractionalOffset.bottomLeft)),

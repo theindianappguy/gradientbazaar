@@ -96,20 +96,20 @@ List<GradientModel> getGradients(){
 
   gradientModel = new GradientModel();
 
-  //1
-  gradientModel.setTopColor(color: Color(0xffFDEB71));
-  gradientModel.setBottomColor(color: Color(0xffF8D800));
-  gradientModel.setTopColorCode(colorCode: "#FDEB71");
-  gradientModel.setBottomColorCode(colorCode: "#F8D800");
+  //11
+  gradientModel.setTopColor(color: Color(0xffFCCF31));
+  gradientModel.setBottomColor(color: Color(0xffF55555));
+  gradientModel.setTopColorCode(colorCode: "#FCCF31");
+  gradientModel.setBottomColorCode(colorCode: "#F55555");
   gradients.add(gradientModel);
 
   gradientModel = new GradientModel();
 
   //2
-  gradientModel.setTopColor(color: Color(0xffABDCFF));
-  gradientModel.setBottomColor(color: Color(0xff0396FF));
+  gradientModel.setTopColor(color: Color(0xffF761A1));
+  gradientModel.setBottomColor(color: Color(0xff8C1BAB));
   gradientModel.setTopColorCode(colorCode: "#ABDCFF");
-  gradientModel.setBottomColorCode(colorCode: "#0396FF");
+  gradientModel.setBottomColorCode(colorCode: "#8C1BAB");
   gradients.add(gradientModel);
 
   gradientModel = new GradientModel();
