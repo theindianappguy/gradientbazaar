@@ -13,7 +13,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   List<GradientModel> gradients = new List<GradientModel>();
 
-  String githubUrl = "https://github.com/theindianappguy";
+  String personalUrl = "https://www.linkedin.com/in/lamsanskar/";
   String twitterUrl = "https://twitter.com/intent/tweet?url=https%3A%2F%2Fgradientbazzar.firebaseapp.com%2F&text=Hey%20guys%20check%20out%20this%20awesome%20gradients%20for%20your%20next%20project%20on%20";
   String linkedInUrl = "https://www.linkedin.com/shareArticle?mini=true&url=https://gradientbazzar.firebaseapp.com/&summary=Hey%20guys%20check%20out%20this%20awesome%20%23gradients%20for%20your%20next%20project%20on%20";
   String facebookUrl = "https://www.facebook.com/sharer/sharer.php?u=https://gradientbazzar.firebaseapp.com/";
@@ -71,7 +71,7 @@ class _HomeState extends State<Home> {
                     child: Column(
                       children: <Widget>[
                         Text(
-                          "Gradient Bazzar",
+                          "Gradient Bazaar",
                           style: TextStyle(fontSize: 25, color: Colors.white),
                         ),
                         SizedBox(
@@ -112,7 +112,7 @@ class _HomeState extends State<Home> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                _launchURL(githubUrl);
+                                _launchURL(personalUrl);
                               },
                               child: Text(
                                 "Sanskar Tiwari",
