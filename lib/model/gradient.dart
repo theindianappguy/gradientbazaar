@@ -13,20 +13,15 @@ class GradientModel{
         this.topColorCode,
         this.bottomColorCode});
 
-  setTopColor({Color color}){
-    topColor = color;
-  }
 
-  setBottomColor({Color color}){
-    bottomColor = color;
-  }
-
-  setTopColorCode({String colorCode}){
+  setTopColorAndCode({String colorCode}){
     topColorCode = colorCode;
+    topColor = hexToColor(colorCode);
   }
 
-  setBottomColorCode({String colorCode}){
+  setBottomColorAndCode({String colorCode}){
     bottomColorCode = colorCode;
+    bottomColor = hexToColor(colorCode);
   }
 
   Color getTopColor(){
@@ -44,4 +39,10 @@ class GradientModel{
   String getBottomColorCode(){
     return bottomColorCode;
   }
+}
+
+Color hexToColor(String hexcode){
+  hexcode = hexcode.replaceAll("#", "");
+  int intColorCode = int.parse("0xff"+hexcode);
+  return Color(intColorCode);
 }

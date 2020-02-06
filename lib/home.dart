@@ -192,7 +192,8 @@ class _HomeState extends State<Home> {
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 40, horizontal: 20),
                     child: GridView(
-                      shrinkWrap: true,physics: ClampingScrollPhysics(),
+                      shrinkWrap: true,
+                      physics: ClampingScrollPhysics(),
                       scrollDirection: Axis.vertical,
                       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                           mainAxisSpacing: 0.0, maxCrossAxisExtent: 230.0),
