@@ -19,6 +19,8 @@ class _HomeState extends State<Home> {
   String facebookUrl = "https://www.facebook.com/sharer/sharer.php?u=https://gradientbazzar.firebaseapp.com/";
 
   var randomNum = 0;
+  Color headingColor;
+  Color textColor;
 
   _launchURL(String url) async {
     print(url);
@@ -40,6 +42,10 @@ class _HomeState extends State<Home> {
 
     var randomizer = new Random();
     randomNum = randomizer.nextInt(gradients.length);
+    headingColor = gradients[randomNum].getBottomColor().computeLuminance() > 0.5 ?
+    Colors.black54 : Colors.white;
+    textColor = gradients[randomNum].getBottomColor().computeLuminance() > 0.5 ?
+    Colors.black54 : Colors.white70;
   }
 
   @override
@@ -70,9 +76,25 @@ class _HomeState extends State<Home> {
                             end: FractionalOffset.bottomLeft)),
                     child: Column(
                       children: <Widget>[
-                        Text(
-                          "Gradient Bazaar",
-                          style: TextStyle(fontSize: 25, color: Colors.white),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "Gradient Bazaar",
+                              style: TextStyle(fontSize: 25, color:
+                              headingColor),
+                            ),
+                            SizedBox(width: 5,),
+                            Container(
+                              padding: EdgeInsets.only(bottom: 3),
+                              child: Text(
+                                ".web.app",
+                                style: TextStyle(fontSize: 14,
+                                    color: headingColor),
+                              ),
+                            ),
+                          ],
                         ),
                         SizedBox(
                           height: 10,
@@ -86,7 +108,7 @@ class _HomeState extends State<Home> {
                               "Made with",
                               style: TextStyle(
                                 fontSize: 13,
-                                color: Colors.white60,
+                                color: textColor,
                               ),
                             ),
                             SizedBox(
@@ -104,7 +126,7 @@ class _HomeState extends State<Home> {
                               "By",
                               style: TextStyle(
                                 fontSize: 13,
-                                color: Colors.white60,
+                                color: textColor,
                               ),
                             ),
                             SizedBox(
@@ -118,7 +140,7 @@ class _HomeState extends State<Home> {
                                 "Sanskar Tiwari",
                                 style: TextStyle(
                                     fontSize: 13,
-                                    color: Colors.white60,
+                                    color: textColor,
                                     decoration: TextDecoration.underline),
                                 textAlign: TextAlign.center,
                               ),
@@ -138,7 +160,7 @@ class _HomeState extends State<Home> {
                                 "Liked our tool share",
                                 style: TextStyle(
                                   fontSize: 13,
-                                  color: Colors.white60,
+                                  color: textColor,
                                 ),
                               ),
                             ),
@@ -151,7 +173,7 @@ class _HomeState extends State<Home> {
                                 "Twitter",
                                 style: TextStyle(
                                   fontSize: 13,
-                                  color: Colors.white60,
+                                  color: textColor,
                                     decoration: TextDecoration.underline
                                 ),
                               ),
@@ -165,7 +187,7 @@ class _HomeState extends State<Home> {
                                 "LinkedIn",
                                 style: TextStyle(
                                     fontSize: 13,
-                                    color: Colors.white60,
+                                    color: textColor,
                                     decoration: TextDecoration.underline
                                 ),
                               ),
@@ -179,7 +201,7 @@ class _HomeState extends State<Home> {
                                 "Facebook",
                                 style: TextStyle(
                                     fontSize: 13,
-                                    color: Colors.white60,
+                                    color: textColor,
                                     decoration: TextDecoration.underline
                                 ),
                               ),
