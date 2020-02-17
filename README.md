@@ -1,6 +1,6 @@
 ![flutter web app gradient bazaar](https://user-images.githubusercontent.com/55942632/74669868-0a87b480-51ce-11ea-871c-d314be710355.jpeg)
 
-# Gradients Bazaar
+# [Gradients Bazaar](https://gradientbazaar.web.app)
 
 Like Gradients but never know the perfect combinations?, I am happy to announce the launch of Gradient Bazaar
 
